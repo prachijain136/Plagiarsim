@@ -6,9 +6,11 @@ import math
 from nltk.corpus import stopwords
 import docx
 
+#enter file path 
+file_path="plagarism/"
 # doc file input in python
 def getText(filename):
-    doc=docx.Document("c:/Users/PPRAMODJ/Downloads/plagarism-20220927T090752Z-001/plagarism/"+filename)
+    doc=docx.Document(file_path+filename)
     
     fullText=[]
     for para in doc.paragraphs:
@@ -17,7 +19,7 @@ def getText(filename):
 
 #input filepath where all assignmentd belong
 docFiles=[]
-for filename in os.listdir("c:/Users/PPRAMODJ/Downloads/plagarism-20220927T090752Z-001/plagarism/"):
+for filename in os.listdir(file_path):
     print(filename)
     if filename.endswith('.docx'):
         filename=getText(filename)
